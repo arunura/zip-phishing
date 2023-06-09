@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Phishing with .zip domains</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            margin: 1em;
+            /* text-align: center; */
+        }
+        input {
+            font-size: 1.2em;
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+        .result {
+            font-size: 1.2em;
+            padding: 0em;
+            margin: 0.5em;
+        }
+        .result.success {
+            color: green;
+        }
+        .result.fail {
+            color: red;
+        }
+        .tabulator-menu-item {
+            text-align: left;
+        }
+    </style>
+    <link href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('button[name="convert"]').addEventListener('click', function(){
+                var input = document.getElementsByName('url')[0].value;
+                // Get url without the https:// part
+                input = input.replace('https://', '');
+                input = input.replace('http://', '');
+                // Replace all slashes with the unicode equivalent
+                input = input.replace(/\//g, '∕');
+                // Add the dwnld.zip domain
+                var result = 'https://' + input + '@dwnld.zip';
+                document.getElementById('result').value = result;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div style="position: absolute; top: 5px; right: 25px; width: 20px; font-size: 0.8em;">v$fsv$</div>
+    <h1>Phishing Demo</h1>
+    <p>This domain can be used for phishing demos and training, using the new <b>.zip</b> domain. A phishing URL can be constructed to make it appear to download a zip file from another domain while, it's really downloading a file from the <b>dwnld.zip</b> domain.</p>
+    <p>For example, the following URL which appears to download a zip file from <b>https://www.github.com/</b> actually downloads one from <b>https://dwnld.zip/</b>.</p>
+    <br/>
+    <p style="margin-left: 20px;"><a href="https://github.com∕microsoft∕dotnet∕archive∕refs∕tags∕v7∕@dwnld.zip">https://github.com∕microsoft∕dotnet∕archive∕refs∕tags∕v7∕@dwnld.zip</a></p>
+    <br/>
+    <h2>Make your own</h2>
+    <input id="url" name="url" type="text" placeholder="Enter URL" value="https://www.7-zip.org/latest/" size="100">
+    <button id="convert" name="convert">Generate</button><br/>
+    <textarea id="result" class="result" rows="1" cols="100"></textarea>
+</body>
+</html>
