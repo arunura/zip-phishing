@@ -53,6 +53,8 @@ func main() {
 			// Create zip file in memory
 			buf := new(bytes.Buffer)
 			zipWriter := zip.NewWriter(buf)
+
+			// Add README.txt to zip file
 			readme, err := zipWriter.Create("README.txt")
 			if err != nil {
 				w.WriteHeader(fsthttp.StatusInternalServerError)
@@ -65,6 +67,26 @@ func main() {
 				fmt.Fprintf(w, "Error writing to zip file\n")
 				return
 			}
+
+			// Add RTLO attack file to zip file
+			rtlo_filename := "What_Type_Of_File_Is_This_pdf_or_" + "\u202E" + "fdp.txt"
+			rtlo, err := zipWriter.Create(rtlo_filename)
+			if err != nil {
+				w.WriteHeader(fsthttp.StatusInternalServerError)
+				fmt.Fprintf(w, "Error creating zip file\n")
+				return
+			}
+			rtlo_body := "This is a text file employing the 'Right-to-Left Override Attack' to appear to be a PDF file on windows.\n"
+			rtlo_body += "The file name contains a unicode char (u202E) which flips text right to left. The file name is set to be What_Type_Of_File_Is_This_pdf_or_[u202E]fdp.txt\n"
+			rtlo_body += "On windows as the OS renders the unicode character correctly to flip the direction of subsequent characters, this file appears in Explorer as " + rtlo_filename + "\n"
+			rtlo_body += "In this instance it was a txt file, but could easily be an exe with a PDF icon to complete the deception and perform a real attack.\n"
+			_, err = rtlo.Write([]byte(rtlo_body))
+			if err != nil {
+				w.WriteHeader(fsthttp.StatusInternalServerError)
+				fmt.Fprintf(w, "Error writing to zip file\n")
+				return
+			}
+
 			err = zipWriter.Close()
 			if err != nil {
 				w.WriteHeader(fsthttp.StatusInternalServerError)
