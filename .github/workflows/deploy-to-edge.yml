@@ -23,6 +23,6 @@ jobs:
       uses: fastly/compute-actions@v5
       with:
         service_id: ${{ secrets.FASTLY_SERVICE_ID }}
-        comment: 'Deployed via <a href="https://github.com/${{ github.repository }}/commit/${{ github.sha }}">GitHub Actions</a>'
+        comment: 'Deployed via GH Actions for https://github.com/${{ github.repository }}/commit/${{ github.sha }}'
       env:
         FASTLY_API_TOKEN: ${{ secrets.FASTLY_API_TOKEN }}
