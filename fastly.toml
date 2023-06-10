@@ -1,0 +1,4 @@
+description = "A demo app for use in phishing training using the new zip domain. Also includes a RTLO Attack file for good measure."
+language = "go"
+manifest_version = 2
+name = "training_zip_phishing"
