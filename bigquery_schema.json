@@ -1,0 +1,155 @@
+
+[
+    {
+        "name": "timestamp",
+        "type": "TIMESTAMP",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "client_ip",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "geo_data",
+        "type": "RECORD",
+        "mode": "NULLABLE",
+        "fields": [
+            {
+                "name": "as_name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "as_number",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "area_code",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "city",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "conn_speed",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "conn_type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "continent",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country_code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country_code3",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "country_name",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "latitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "longitude",
+                "type": "FLOAT",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "metro_code",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "postal_code",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "proxy_description",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "proxy_type",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "region",
+                "type": "STRING",
+                "mode": "NULLABLE"
+            },
+            {
+                "name": "utc_offset",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "host",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "url",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "request_referer",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "request_method",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "request_protocol",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "request_user_agent",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "fastly_pop",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "fastly_service_version",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "fastly_trace_id",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    }
+]
