@@ -17,7 +17,7 @@ jobs:
     - name: Install TinyGo
       uses: ./.github/actions/install-tinygo
       with:
-        tinygo-version: '0.27.0'
+        tinygo-version: '0.28.1'
 
     - name: Deploy to Compute@Edge
       uses: fastly/compute-actions@v5
